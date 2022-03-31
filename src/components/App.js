@@ -6,7 +6,7 @@ import TotalDisplay from './TotalDisplay';
 import CalcButton from './CalcButton';
 
 import reducer, {initialState} from "../reducers"
-import {applyNumber, changeOperation, clearDisplay} from "../actions/"
+import {applyNumber, changeOperation, clearDisplay, memoryAdd} from "../actions/"
 
 function App() {
 
@@ -22,6 +22,10 @@ function App() {
 
   const handleOperations = (operator) => {
     dispatch(changeOperation(operator))
+  }
+
+  const memoryAdder = () => {
+    dispatch(memoryAdd())
   }
   console.log(state)
   return (
@@ -41,7 +45,7 @@ function App() {
             </div>
             
             <div className="row">
-              <CalcButton value={"M+"}/>
+              <CalcButton value={"M+"} onClick={memoryAdder}/>
               <CalcButton value={"MR"}/>
               <CalcButton value={"MC"}/>
             </div>
